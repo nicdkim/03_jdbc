@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+
+<properties>
+    <entry key="maxSalaryEmployee">
+        <![CDATA[
+        SELECT *
+        FROM EMPLOYEE
+        WHERE SALARY = (SELECT MAX(SALARY) FROM EMPLOYEE);
+        ]]>
+    </entry>
+
+    <entry key="employeeDetails">
+        <![CDATA[
+        SELECT
+            E.EMP_ID AS 사번,
+            E.EMP_NAME AS 이름,
+            E.EMAIL AS 연락처,
+            E.PHONE AS 전화번호,
+            J.JOB_NAME AS 직급
+        FROM
+            EMPLOYEE E
+        JOIN
+            JOB J ON E.JOB_CODE = J.JOB_CODE
+        WHERE
+            E.EMP_NAME = '선동일';
+        ]]>
+    </entry>
+</properties>
